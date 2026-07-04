@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elijo Tecnología — Tu tienda de tecnología en Perú. Laptops, PCs, celulares, componentes, periféricos, impresoras y más. ¡Elige con nosotros!" />
+  <meta name="keywords" content="tecnología, laptops, computadoras, celulares, periféricos, impresoras, componentes, tablets, Perú" />
+  <meta property="og:title" content="Elijo Tecnología — Catálogo de Productos" />
+  <meta property="og:description" content="Encuentra los mejores productos de tecnología al mejor precio. Consulta por WhatsApp." />
+  <meta property="og:type" content="website" />
+  <title>Elijo Tecnología — Catálogo de Productos Tech</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='10' cy='10' r='4' fill='%231a73e8'/><rect x='16' y='7' width='12' height='6' rx='3' fill='none' stroke='%231a73e8' stroke-width='2'/><circle cx='10' cy='22' r='4' fill='none' stroke='%231a73e8' stroke-width='2'/><rect x='16' y='19' width='12' height='6' rx='3' fill='none' stroke='%231a73e8' stroke-width='2'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="nav-inner">
+        <!-- Logo -->
+        <a href="#" class="nav-logo" aria-label="Elijo Tecnología - Inicio">
+          <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="25" cy="25" r="10" fill="none" stroke="#1a73e8" stroke-width="6"/>
+            <rect x="40" y="17" width="48" height="16" rx="8" fill="none" stroke="#1a73e8" stroke-width="6"/>
+            <circle cx="25" cy="50" r="10" fill="#1a73e8"/>
+            <rect x="40" y="42" width="48" height="16" rx="8" fill="none" stroke="#1a73e8" stroke-width="6"/>
+            <circle cx="25" cy="75" r="10" fill="none" stroke="#1a73e8" stroke-width="6"/>
+            <rect x="40" y="67" width="48" height="16" rx="8" fill="none" stroke="#1a73e8" stroke-width="6"/>
+          </svg>
+          <div class="nav-logo-text">
+            <span class="nav-logo-elijo">elijo</span>
+            <span class="nav-logo-tec">Tecnología</span>
+          </div>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search" role="search">
+          <label for="search-input" class="sr-only">Buscar productos</label>
+          <input
+            type="search"
+            id="search-input"
+            name="q"
+            placeholder="Buscar laptops, celulares, componentes..."
+            autocomplete="off"
+            aria-label="Buscar productos"
+          />
+          <button class="nav-search-btn" id="search-btn" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button class="nav-btn nav-btn-ghost" id="nav-contact-btn" aria-label="Contacto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span>Contacto</span>
+          </button>
+          <a
+            href="https://wa.me/51999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-btn nav-btn-primary"
+            id="nav-whatsapp-btn"
+            aria-label="WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <button class="nav-menu-toggle" id="nav-menu-toggle" aria-label="Abrir filtros">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Catálogo actualizado
+      </div>
+      <h1 id="hero-heading">
+        <span>Elige</span> la mejor tecnología<br />para ti
+      </h1>
+      <p class="hero-subtitle">
+        Laptops, PCs, celulares, componentes y mucho más.
+        Todo en un solo lugar. Envíos a todo el Perú.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">+500</span>
+          <span class="hero-stat-lbl">Productos<br/>disponibles</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">10</span>
+          <span class="hero-stat-lbl">Categorías<br/>de productos</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">🚚</span>
+          <span class="hero-stat-lbl">Envíos a todo<br/>el Perú</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">💬</span>
+          <span class="hero-stat-lbl">Atención por<br/>WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CATEGORY PILLS BAR
+  ══════════════════════════════════════════ -->
+  <nav class="categories-bar" aria-label="Filtrar por categoría">
+    <div class="categories-inner" id="category-pills" role="group" aria-label="Categorías de productos">
+      <!-- Rendered by JS -->
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       MAIN — Sidebar + Catalog
+  ══════════════════════════════════════════ -->
+  <main class="main-layout" id="catalogo">
+
+    <!-- SIDEBAR FILTERS -->
+    <aside class="sidebar" id="sidebar" aria-label="Filtros del catálogo">
+      <!-- Close btn (mobile) -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+        <p class="sidebar-title" style="margin-bottom:0">Filtros</p>
+        <button
+          id="sidebar-close-btn"
+          aria-label="Cerrar filtros"
+          style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:var(--text-muted);transition:background .2s;"
+          onmouseover="this.style.background='var(--gray-100)'"
+          onmouseout="this.style.background='transparent'"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+          Precio (Soles)
+        </h3>
+        <div class="price-inputs">
+          <div class="price-input-wrap">
+            <label for="price-min">Mínimo</label>
+            <input type="number" id="price-min" placeholder="S/ 0" min="0" step="50" />
+          </div>
+          <div class="price-input-wrap">
+            <label for="price-max">Máximo</label>
+            <input type="number" id="price-max" placeholder="Sin límite" min="0" step="50" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Brands -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+          Marca
+        </h3>
+        <div class="filter-options" id="brand-filters" role="group" aria-label="Filtrar por marca">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Clear -->
+      <button class="btn-clear-filters" id="btn-clear-filters" aria-label="Limpiar todos los filtros">
+        Limpiar filtros
+      </button>
+    </aside>
+
+    <!-- CATALOG -->
+    <section aria-labelledby="catalog-heading">
+      <div class="catalog-header">
+        <p class="catalog-count" id="products-count" aria-live="polite">
+          <!-- Updated by JS -->
+        </p>
+        <div class="catalog-sort">
+          <label for="sort-select">Ordenar por:</label>
+          <select class="sort-select" id="sort-select" aria-label="Ordenar productos">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 id="catalog-heading" class="sr-only">Catálogo de productos</h2>
+
+      <div class="products-grid" id="products-grid" role="list" aria-label="Productos">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="25" cy="25" r="10" fill="none" stroke="#4285f4" stroke-width="6"/>
+            <rect x="40" y="17" width="48" height="16" rx="8" fill="none" stroke="#4285f4" stroke-width="6"/>
+            <circle cx="25" cy="50" r="10" fill="#4285f4"/>
+            <rect x="40" y="42" width="48" height="16" rx="8" fill="none" stroke="#4285f4" stroke-width="6"/>
+            <circle cx="25" cy="75" r="10" fill="none" stroke="#4285f4" stroke-width="6"/>
+            <rect x="40" y="67" width="48" height="16" rx="8" fill="none" stroke="#4285f4" stroke-width="6"/>
+          </svg>
+          <div class="footer-logo-text">
+            <span class="footer-elijo">elijo</span>
+            <span class="footer-tec">Tecnología</span>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Tu tienda de confianza para todo en tecnología. Productos originales con garantía, envíos a todo el Perú.
+        </p>
+        <div class="footer-socials">
+          <!-- Facebook -->
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.79 1.53V6.78a4.85 4.85 0 01-1.02-.09z"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/51999999999" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-col-title">Categorías</h3>
+        <ul class="footer-links">
+          <li><a href="#">💻 Laptops</a></li>
+          <li><a href="#">🖥️ PCs de Escritorio</a></li>
+          <li><a href="#">📱 Celulares</a></li>
+          <li><a href="#">📟 Tablets</a></li>
+          <li><a href="#">🖨️ Impresoras</a></li>
+          <li><a href="#">⚙️ Componentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-col-title">Marcas</h3>
+        <ul class="footer-links">
+          <li><a href="#">HP</a></li>
+          <li><a href="#">Lenovo</a></li>
+          <li><a href="#">Samsung</a></li>
+          <li><a href="#">ASUS</a></li>
+          <li><a href="#">Xiaomi</a></li>
+          <li><a href="#">Epson</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-col-title">Información</h3>
+        <ul class="footer-links">
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Garantías</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Política de cambios</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © 2024 Elijo Tecnología. Todos los derechos reservados. Lima, Perú.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">🔒 Compra segura</span>
+        <span class="footer-badge">✓ Productos originales</span>
+        <span class="footer-badge">🚚 Envíos Perú</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       MODAL
+  ══════════════════════════════════════════ -->
+  <div
+    class="modal-overlay"
+    id="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Detalle de producto"
+  >
+    <div class="modal" id="modal-content">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MOBILE SIDEBAR OVERLAY
+  ══════════════════════════════════════════ -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       MOBILE FILTER FAB
+  ══════════════════════════════════════════ -->
+  <button class="filter-fab" id="filter-fab" aria-label="Abrir filtros">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="4" y1="6" x2="20" y2="6"/>
+      <line x1="8" y1="12" x2="16" y2="12"/>
+      <line x1="11" y1="18" x2="13" y2="18"/>
+    </svg>
+    Filtros
+  </button>
+
+  <!-- ══════════════════════════════════════════
+       WHATSAPP FLOAT
+  ══════════════════════════════════════════ -->
+  <button
+    class="whatsapp-float"
+    id="whatsapp-float"
+    aria-label="Abrir WhatsApp para consultas"
+    title="Consúltanos por WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="wa-float-label">¡Consúltanos!</span>
+  </button>
+
+  <script src="app.js"></script>
+  <script src="assistant.js"></script>
+</body>
+</html>
