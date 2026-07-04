@@ -66,11 +66,11 @@ const KNOWLEDGE = {
   responses: {
     greeting: [
       '¡Hola! Soy **Eli**, tu asistente de Elijo Tecnología 🙋‍♀️\n\n¿En qué te puedo ayudar hoy? Puedo:\n• 🔍 Buscar productos específicos\n• 📂 Explorar categorías\n• 💰 Filtrar por presupuesto\n• 🔥 Mostrarte ofertas y novedades',
-      '¡Bienvenido/a! Soy **Eli** y estoy aquí para ayudarte a encontrar la mejor tecnología 🤖✨\n\nCuéntame, ¿qué estás buscando hoy?',
+      '¡Bienvenido/a! Soy **Eli** y estoy aquí para ayudarte a encontrar la mejor tecnología 🧠✨\n\nCuéntame, ¿qué estás buscando hoy?',
     ],
     help: '¡Claro que sí! Así es como puedo ayudarte:\n\n💬 **Búsqueda natural**: "Busco una laptop para estudiar"\n💰 **Por precio**: "Celulares menos de S/ 1000"\n📂 **Por categoría**: "Muéstrame impresoras"\n🏷️ **Por marca**: "Laptops Lenovo"\n🔥 **Ofertas**: "¿Qué está en oferta?"\n\n¡Solo escríbeme con tus palabras!',
-    thanks: ['¡De nada! 😊 ¿Hay algo más en lo que te pueda ayudar?', '¡Con gusto! Para eso estoy 🤖 ¿Buscas algo más?', '¡Encantada de ayudar! ¿Necesitas ver más opciones?'],
-    bye: '¡Hasta pronto! 👋 Si necesitas ayuda para elegir tu próximo producto tech, aquí estaré 🤖',
+    thanks: ['¡De nada! 😊 ¿Hay algo más en lo que te pueda ayudar?', '¡Con gusto! Para eso estoy 🧠 ¿Buscas algo más?', '¡Encantada de ayudar! ¿Necesitas ver más opciones?'],
+    bye: '¡Hasta pronto! 👋 Si necesitas ayuda para elegir tu próximo producto tech, aquí estaré 🧠',
     notUnderstood: [
       'Hmm, no entendí muy bien 🤔 ¿Puedes decirme qué producto o categoría buscas? Por ejemplo: "laptop para gaming" o "celular menos de S/ 1000"',
       '¡Cuéntame más! ¿Qué tipo de producto buscas? Puedo ayudarte con laptops, celulares, PCs, impresoras y mucho más 💡',
