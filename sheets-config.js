@@ -24,10 +24,10 @@
 
 const SHEETS_CONFIG = {
   // ► PEGA AQUÍ TU URL DE GOOGLE SHEETS CSV ◄
-  SHEETS_CSV_URL: '',   // Ejemplo: 'https://docs.google.com/spreadsheets/d/TU_ID/export?format=csv&gid=0'
+  SHEETS_CSV_URL: 'https://docs.google.com/spreadsheets/d/1NyN3ww79H0TB1Cpi8woqFgm9ZmptG6_ECO_sb27eCiw/edit?usp=sharing',   // Ejemplo: 'https://docs.google.com/spreadsheets/d/TU_ID/export?format=csv&gid=0'
 
   // Número de WhatsApp (con código de país, sin +)
-  WHATSAPP_NUMBER: '51999999999',
+  WHATSAPP_NUMBER: '51918394348',
 
   // Tiempo en minutos para recargar los productos automáticamente
   // Pon 0 para desactivar la recarga automática
