@@ -1351,3 +1351,105 @@ input { font-family: inherit; }
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* ─── Skeleton product cards ──────────────────────────────── */
+.skeleton-card {
+  pointer-events: none;
+  cursor: default;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0;
+}
+
+.skeleton-line {
+  height: 14px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.skeleton-line.short  { width: 45%; }
+.skeleton-line.medium { width: 70%; }
+
+.skeleton-footer {
+  height: 36px;
+  margin-top: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Google Sheets Sync Banner ───────────────────────────── */
+.sheets-sync-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  font-size: .78rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid transparent;
+  transition: background .3s, color .3s;
+  flex-wrap: wrap;
+}
+
+.sheets-sync-banner.banner-syncing {
+  background: #e8f0fe;
+  color: #1557b0;
+  border-bottom-color: #c5d9ff;
+}
+
+.sheets-sync-banner.banner-success {
+  background: #e6f4ea;
+  color: #137333;
+  border-bottom-color: #b7dfbd;
+}
+
+.sheets-sync-banner.banner-error {
+  background: #fce8e6;
+  color: #c5221f;
+  border-bottom-color: #f5c6c4;
+}
+
+.sheets-sync-banner.banner-demo {
+  background: #fef7e0;
+  color: #b06000;
+  border-bottom-color: #fde68a;
+}
+
+.banner-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.banner-icon.spinning svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.banner-refresh-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(0,0,0,.07);
+  border: none;
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 700;
+  color: inherit;
+  transition: background .2s;
+}
+
+.banner-refresh-btn:hover { background: rgba(0,0,0,.14); }
