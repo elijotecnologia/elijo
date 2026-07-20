@@ -8,7 +8,7 @@
 // ─── WhatsApp (desde la configuración) ────────────────────────────────────
 const WHATSAPP_NUMBER = (typeof SHEETS_CONFIG !== 'undefined')
   ? SHEETS_CONFIG.WHATSAPP_NUMBER
-  : '51999999999';
+  : '51918394348';
 
 // ─── Productos de demostración (alternativa si Google Sheets no está configurado) ──
 const PRODUCTOS_DEMO = [
