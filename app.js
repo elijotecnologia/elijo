@@ -1,20 +1,20 @@
 /* ============================================================
-   ELIJO TECNOLOGÍA — Catalog Application
-   Google Sheets Integration + Search + Filter + Modal + WhatsApp
-   ============================================================ */
+   ELIJO TECNOLOGÍA — Aplicación del Catálogo
+   Integración con Google Sheets + Búsqueda + Filtro + Ventana modal + WhatsApp
+   ============================================================= */
 
 'use strict';
 
-// ─── WhatsApp (from config) ────────────────────────────────────
+// ─── WhatsApp (desde la configuración) ────────────────────────────────────
 const WHATSAPP_NUMBER = (typeof SHEETS_CONFIG !== 'undefined')
   ? SHEETS_CONFIG.WHATSAPP_NUMBER
-  : '51918394348';
+  : '51999999999';
 
-// ─── Demo Products (fallback si Google Sheets no está configurado) ──
-const DEMO_PRODUCTS = [
+// ─── Productos de demostración (alternativa si Google Sheets no está configurado) ──
+const PRODUCTOS_DEMO = [
   {
     id: 1,
-    name: 'Laptop Lenovo IdeaPad 5 15.6" FHD',
+    name: 'Portátil Lenovo IdeaPad 5 de 15,6" FHD',
     brand: 'Lenovo',
     category: 'laptops',
     price: 2899,
@@ -28,21 +28,21 @@ const DEMO_PRODUCTS = [
   },
   {
     id: 2,
-    name: 'Laptop HP Pavilion 14" AMD Ryzen 5',
+    name: 'Portátil HP Pavilion 14" AMD Ryzen 5',
     brand: 'HP',
     category: 'laptops',
     price: 2499,
     oldPrice: null,
     badge: 'new',
     image: 'images/laptop.jpg',
-    description: 'Diseño delgado y ligero con potente procesador AMD Ryzen 5, perfecta para estudiantes y profesionales.',
+    description: 'Diseño delgado y ligero con potente procesador AMD Ryzen 5, perfecto para estudiantes y profesionales.',
     specs: { 'Procesador': 'AMD Ryzen 5 5500U', 'Memoria RAM': '8 GB DDR4', 'Almacenamiento': 'SSD 256 GB', 'Pantalla': '14" FHD', 'Sistema Operativo': 'Windows 11 Home', 'Peso': '1.5 kg' },
     tags: ['Ryzen 5', 'Ligera', '14"'],
     featured: false,
   },
   {
     id: 3,
-    name: 'Laptop ASUS ROG Strix G15 Gaming',
+    name: 'Portátil ASUS ROG Strix G15 Gaming',
     brand: 'ASUS',
     category: 'laptops',
     price: 5499,
@@ -51,7 +51,7 @@ const DEMO_PRODUCTS = [
     image: 'images/laptop.jpg',
     description: 'Laptop gaming de alto rendimiento con pantalla de 144Hz, GPU dedicada NVIDIA RTX 3060.',
     specs: { 'Procesador': 'AMD Ryzen 7 5800H', 'Memoria RAM': '16 GB DDR4', 'Almacenamiento': 'SSD 512 GB NVMe', 'GPU': 'NVIDIA RTX 3060 6GB', 'Pantalla': '15.6" FHD 144Hz', 'Sistema Operativo': 'Windows 11 Home' },
-    tags: ['RTX 3060', '144Hz', 'Gaming'],
+    tags: ['RTX 3060', '144Hz', 'Juegos'],
     featured: true,
   },
   {
@@ -64,8 +64,8 @@ const DEMO_PRODUCTS = [
     badge: 'hot',
     image: 'images/desktop.jpg',
     description: 'PC Gaming de alto rendimiento ensamblada con refrigeración líquida e iluminación RGB.',
-    specs: { 'Procesador': 'AMD Ryzen 7 5800X', 'Memoria RAM': '32 GB DDR4 3200MHz', 'Almacenamiento': 'SSD 1TB NVMe + HDD 2TB', 'GPU': 'NVIDIA RTX 3080 10GB', 'Fuente': '850W 80+ Gold', 'Gabinete': 'NZXT H510 Elite' },
-    tags: ['RTX 3080', '32GB RAM', 'RGB'],
+    specs: { 'Procesador': 'AMD Ryzen 7 5800X', 'Memoria RAM': '32 GB DDR4 3200MHz', 'Almacenamiento': 'SSD 1TB NVMe + HDD 2TB', 'GPU': 'NVIDIA RTX 3080 10GB', 'Fuente': '850W 80+ Gold', 'Gabinete': 'NZXT H510 Élite' },
+    tags: ['RTX 3080', '32 GB de RAM', 'RGB'],
     featured: true,
   },
   {
@@ -114,12 +114,12 @@ const DEMO_PRODUCTS = [
     id: 8,
     name: 'Monitor Samsung Odyssey G5 34" Curvo',
     brand: 'Samsung',
-    category: 'perifericos',
+    category: 'periféricos',
     price: 1799,
     oldPrice: 1999,
     badge: 'sale',
     image: 'images/monitor.jpg',
-    description: 'Monitor curvo ultra-wide QHD de 34 pulgadas con tasa de refresco de 165Hz.',
+    description: 'Monitor curvo ultra ancho QHD de 34 pulgadas con tasa de refresco de 165Hz.',
     specs: { 'Panel': 'VA 34" Curvo 1000R', 'Resolución': '3440 × 1440 QHD', 'Tasa refresco': '165 Hz', 'Tiempo respuesta': '1 ms', 'HDR': 'HDR10', 'Conectividad': 'HDMI 2.0 × 2, DisplayPort 1.4' },
     tags: ['165Hz', 'Ultra-Wide', 'QHD'],
     featured: true,
@@ -128,13 +128,13 @@ const DEMO_PRODUCTS = [
     id: 9,
     name: 'Teclado + Mouse Gaming RGB HyperX',
     brand: 'HyperX',
-    category: 'perifericos',
+    category: 'periféricos',
     price: 389,
     oldPrice: 449,
     badge: 'sale',
     image: 'images/keyboard.jpg',
     description: 'Combo gaming con teclado mecánico y mouse gaming de 16000 DPI con iluminación RGB.',
-    specs: { 'Tipo teclado': 'Mecánico Full Size', 'Switches': 'HyperX Red (lineal)', 'Mouse DPI': 'Hasta 16000 DPI', 'Iluminación': 'RGB full programmable', 'Conexión': 'USB 2.0', 'Cable': '1.8 m braided' },
+    specs: { 'Tipo teclado': 'Mecánico Full Size', 'Switches': 'HyperX Red (lineal)', 'Mouse DPI': 'Hasta 16000 DPI', 'Iluminación': 'RGB full programable', 'Conexión': 'USB 2.0', 'Cable': '1.8 m trenzado' },
     tags: ['Mecánico', 'RGB', '16000 DPI'],
     featured: false,
   },
@@ -148,7 +148,7 @@ const DEMO_PRODUCTS = [
     badge: 'new',
     image: 'images/printer.jpg',
     description: 'Impresora multifunción inalámbrica con función de impresión, escaneo y copia.',
-    specs: { 'Tipo': 'Inyección de tinta', 'Función': 'Imprime, escanea, copia', 'Conectividad': 'WiFi + USB', 'Velocidad B/N': '7.5 ppm', 'Velocidad Color': '5.5 ppm', 'Resolución': '4800 × 1200 dpi' },
+    specs: { 'Tipo': 'Inyección de tinta', 'Función': 'Imprime, escanear, copia', 'Conectividad': 'WiFi + USB', 'Velocidad B/N': '7.5 ppm', 'Velocidad Color': '5.5 ppm', 'Resolución': '4800 × 1200 dpi' },
     tags: ['WiFi', 'Multifunción', 'HP+'],
     featured: false,
   },
@@ -162,7 +162,7 @@ const DEMO_PRODUCTS = [
     badge: 'hot',
     image: 'images/printer.jpg',
     description: 'Impresora con tanques de tinta recargables de alta capacidad, sin cartuchos.',
-    specs: { 'Tipo': 'EcoTank (tanques recargables)', 'Función': 'Imprime, escanea, copia', 'Conectividad': 'WiFi + USB', 'Rendimiento negro': '4500 páginas', 'Rendimiento color': '7500 páginas', 'Velocidad': '10 ppm B/N' },
+    specs: { 'Tipo': 'EcoTank (tanques recargables)', 'Función': 'Imprime, escanear, copia', 'Conectividad': 'WiFi + USB', 'Rendimiento negro': '4500 páginas', 'Rendimiento color': '7500 páginas', 'Velocidad': '10 ppm B/N' },
     tags: ['EcoTank', 'Sin cartuchos', 'Económico'],
     featured: true,
   },
@@ -196,9 +196,9 @@ const DEMO_PRODUCTS = [
   },
   {
     id: 14,
-    name: 'Tablet Samsung Galaxy Tab A8 10.5"',
+    name: 'Tableta Samsung Galaxy Tab A8 de 10,5"',
     brand: 'Samsung',
-    category: 'tablets',
+    category: 'tabletas',
     price: 899,
     oldPrice: 999,
     badge: 'sale',
@@ -210,7 +210,7 @@ const DEMO_PRODUCTS = [
   },
   {
     id: 15,
-    name: 'Headset Logitech G435 Inalámbrico',
+    name: 'Auriculares Logitech G435 Inalámbrico',
     brand: 'Logitech',
     category: 'accesorios',
     price: 349,
@@ -238,7 +238,7 @@ const DEMO_PRODUCTS = [
   },
   {
     id: 17,
-    name: 'Microsoft Office 2021 Home & Business',
+    name: 'Microsoft Office 2021 Hogar y Empresas',
     brand: 'Microsoft',
     category: 'software',
     price: 699,
@@ -266,56 +266,56 @@ const DEMO_PRODUCTS = [
   },
 ];
 
-// ─── Reactive products list (filled from Sheets or demo) ──────
+// ─── Lista de productos reactivos (rellenada desde Hojas de cálculo o demostración) ──────
 let PRODUCTS = [];
 
-// ─── State ───────────────────────────────────────────────────
+// ─── Estado ──────────────────────────────────────────────────
 let state = {
-  search:   '',
+  search: '',
   category: 'all',
-  brands:   new Set(),
+  brands: new Set(),
   priceMin: 0,
   priceMax: Infinity,
-  sort:     'featured',
-  loading:  true,
-  source:   'demo',  // 'sheets' | 'demo'
+  sort: 'featured',
+  loading: true,
+  source: 'demo', // 'sheets' | 'demo'
   lastSync: null,
 };
 
-// ═══════════════════════════════════════════════════════════════
-// GOOGLE SHEETS INTEGRATION
-// ═══════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════
+// INTEGRACIÓN CON GOOGLE SHEETS
+// ═════════════════════════════════════════════════════════════
 
 /**
- * Parse a CSV row respecting quoted fields that may contain commas
+ * Analizar una fila CSV respetando los campos entre comillas que pueden contener comas.
  */
 function parseCSVRow(row) {
-  const result = [];
-  let current = '';
+  const resultado = [];
+  let actual = '';
   let inQuotes = false;
 
   for (let i = 0; i < row.length; i++) {
     const ch = row[i];
     if (ch === '"') {
       if (inQuotes && row[i + 1] === '"') {
-        current += '"';
+        actual += '"';
         i++;
       } else {
         inQuotes = !inQuotes;
       }
     } else if (ch === ',' && !inQuotes) {
-      result.push(current.trim());
-      current = '';
+      resultado.push(actual.trim());
+      actual = '';
     } else {
-      current += ch;
+      actual += ch;
     }
   }
-  result.push(current.trim());
-  return result;
+  resultado.push(actual.trim());
+  return resultado;
 }
 
 /**
- * Parse specs string: "Clave1:Valor1|Clave2:Valor2" → { Clave1: 'Valor1', ... }
+ * Analizar la cadena de especificaciones: "Clave1:Valor1|Clave2:Valor2" → { Clave1: 'Valor1', ... }
  */
 function parseSpecs(specsStr) {
   if (!specsStr || specsStr.trim() === '') return {};
@@ -332,7 +332,7 @@ function parseSpecs(specsStr) {
 }
 
 /**
- * Parse tags string: "Tag1,Tag2,Tag3" → ['Tag1', 'Tag2', 'Tag3']
+ * Analizar la cadena de etiquetas: "Tag1,Tag2,Tag3" → ['Tag1', 'Tag2', 'Tag3']
  */
 function parseTags(tagsStr) {
   if (!tagsStr || tagsStr.trim() === '') return [];
@@ -340,9 +340,7 @@ function parseTags(tagsStr) {
 }
 
 /**
- * Convert a CSV row array to a product object
- * Columns: id | name | brand | category | price | oldPrice | badge |
- *          image | description | specs | tags | featured
+ * Convertir una matriz de filas CSV en un objeto de producto.
  */
 function rowToProduct(cells, index) {
   const [
@@ -350,7 +348,7 @@ function rowToProduct(cells, index) {
     image, description, specs, tags, featured
   ] = cells;
 
-  if (!name || !price) return null; // skip empty rows
+  if (!name || !price) return null; // omite las filas vacías
 
   const parsedPrice = parseFloat(String(price).replace(/[^\d.]/g, ''));
   const parsedOldPrice = oldPrice && oldPrice.trim() !== ''
@@ -374,10 +372,9 @@ function rowToProduct(cells, index) {
 }
 
 /**
- * Fetch and parse CSV from Google Sheets
+ * Obtener y analizar archivos CSV de Google Sheets
  */
 async function fetchFromGoogleSheets(csvUrl) {
-  // Add cache-busting to always get fresh data
   const url = csvUrl + (csvUrl.includes('?') ? '&' : '?') + '_t=' + Date.now();
 
   const response = await fetch(url, {
@@ -396,23 +393,22 @@ async function fetchFromGoogleSheets(csvUrl) {
     throw new Error('La hoja de Google Sheets está vacía o no tiene datos de productos');
   }
 
-  // Skip header row (row 0), parse data rows
-  const products = [];
+  const productos = [];
   for (let i = 1; i < rows.length; i++) {
     const cells = parseCSVRow(rows[i]);
-    const product = rowToProduct(cells, i - 1);
-    if (product) products.push(product);
+    const producto = rowToProduct(cells, i - 1);
+    if (producto) productos.push(producto);
   }
 
-  if (products.length === 0) {
+  if (productos.length === 0) {
     throw new Error('No se encontraron productos válidos en la hoja');
   }
 
-  return products;
+  return productos;
 }
 
 /**
- * Load products: try Sheets first, fallback to demo
+ * Cargar productos: pruebe primero con Hojas de cálculo; si no funciona, utilice la versión de demostración.
  */
 async function loadProducts() {
   showLoadingState();
@@ -423,16 +419,16 @@ async function loadProducts() {
   if (csvUrl && csvUrl.startsWith('http')) {
     try {
       updateSyncBanner('syncing');
-      const products = await fetchFromGoogleSheets(csvUrl);
-      PRODUCTS = products;
+      const productos = await fetchFromGoogleSheets(csvUrl);
+      PRODUCTS = productos;
       state.source = 'sheets';
       state.lastSync = new Date();
-      updateSyncBanner('success', products.length);
-      console.log(`✅ Elijo Tech: ${products.length} productos cargados desde Google Sheets`);
+      updateSyncBanner('success', productos.length);
+      console.log(`✅ Elijo Tech: ${productos.length} productos cargados desde Google Sheets`);
     } catch (err) {
       console.warn('⚠️ Elijo Tech: Error al cargar Google Sheets:', err.message);
       if (config.FALLBACK_TO_DEMO !== false) {
-        PRODUCTS = DEMO_PRODUCTS;
+        PRODUCTS = PRODUCTOS_DEMO;
         state.source = 'demo';
         updateSyncBanner('error', 0, err.message);
       } else {
@@ -441,8 +437,7 @@ async function loadProducts() {
       }
     }
   } else {
-    // No Sheets URL configured → use demo data
-    PRODUCTS = DEMO_PRODUCTS;
+    PRODUCTS = PRODUCTOS_DEMO;
     state.source = 'demo';
     updateSyncBanner('demo');
   }
@@ -452,7 +447,6 @@ async function loadProducts() {
   renderBrandFilters();
   renderProducts();
 
-  // Setup auto-refresh
   const refreshMins = config.AUTO_REFRESH_MINUTES || 0;
   if (refreshMins > 0 && csvUrl) {
     setInterval(() => refreshProducts(csvUrl), refreshMins * 60 * 1000);
@@ -460,27 +454,27 @@ async function loadProducts() {
 }
 
 /**
- * Silent refresh (no loading skeleton, just updates in background)
+ * Actualización silenciosa en segundo plano
  */
 async function refreshProducts(csvUrl) {
   try {
-    const products = await fetchFromGoogleSheets(csvUrl);
-    PRODUCTS = products;
+    const productos = await fetchFromGoogleSheets(csvUrl);
+    PRODUCTS = productos;
     state.source = 'sheets';
     state.lastSync = new Date();
-    updateSyncBanner('success', products.length);
+    updateSyncBanner('success', productos.length);
     renderCategoryPills();
     renderBrandFilters();
     renderProducts();
-    console.log(`🔄 Elijo Tech: Catálogo actualizado (${products.length} productos)`);
+    console.log(`🔄 Elijo Tech: Catálogo actualizado (${productos.length} productos)`);
   } catch (err) {
     console.warn('⚠️ Elijo Tech: Error al actualizar:', err.message);
   }
 }
 
-// ═══════════════════════════════════════════════════════════════
-// SYNC BANNER — shows Sheets status
-// ═══════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════
+// BANNER DE SINCRONIZACIÓN
+// ═════════════════════════════════════════════════════════════
 function updateSyncBanner(status, count = 0, errorMsg = '') {
   const banner = document.getElementById('sheets-sync-banner');
   if (!banner) return;
@@ -488,22 +482,22 @@ function updateSyncBanner(status, count = 0, errorMsg = '') {
   const icons = {
     syncing: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>`,
     success: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`,
-    error:   `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
-    demo:    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    error: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    demo: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
   };
 
   const messages = {
     syncing: 'Sincronizando con Google Sheets…',
-    success: `✓ ${count} productos sincronizados desde Google Sheets · Última actualización: ${new Date().toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' })}`,
-    error:   `⚠ Error de sincronización — usando datos de ejemplo. (${errorMsg})`,
-    demo:    '📋 Modo demo · Configura Google Sheets en <strong>sheets-config.js</strong> para cargar tus productos reales',
+    success: ` ✓ ${count} productos sincronizados desde Google Sheets · Última actualización: ${new Date().toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' })}`,
+    error: `⚠ Error de sincronización — usando datos de ejemplo. (${errorMsg})`,
+    demo: '📋 Modo demo · Configura Google Sheets en <strong>sheets-config.js</strong> para cargar tus productos reales',
   };
 
   const colors = {
     syncing: 'banner-syncing',
     success: 'banner-success',
-    error:   'banner-error',
-    demo:    'banner-demo',
+    error: 'banner-error',
+    demo: 'banner-demo',
   };
 
   banner.className = `sheets-sync-banner ${colors[status]}`;
@@ -515,7 +509,6 @@ function updateSyncBanner(status, count = 0, errorMsg = '') {
     </button>` : ''}
   `;
 
-  // Bind refresh button
   const refreshBtn = document.getElementById('banner-refresh-btn');
   if (refreshBtn) {
     const csvUrl = (typeof SHEETS_CONFIG !== 'undefined') ? SHEETS_CONFIG.SHEETS_CSV_URL : '';
@@ -525,9 +518,9 @@ function updateSyncBanner(status, count = 0, errorMsg = '') {
   }
 }
 
-// ═══════════════════════════════════════════════════════════════
-// LOADING SKELETON
-// ═══════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════
+// CARGANDO ESQUELETO
+// ═════════════════════════════════════════════════════════════
 function showLoadingState() {
   const grid = document.getElementById('products-grid');
   const countEl = document.getElementById('products-count');
@@ -548,7 +541,7 @@ function showLoadingState() {
   }
 }
 
-// ─── Formatting helpers ───────────────────────────────────────
+// ─── Ayudas de formato ───────────────────────────────────────
 function formatPrice(price) {
   return `S/ ${price.toLocaleString('es-PE', { minimumFractionDigits: 0 })}`;
 }
@@ -566,7 +559,7 @@ function whatsappLink(product) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
-// ─── Computed helpers ─────────────────────────────────────────
+// ─── Ayudantes calculados ─────────────────────────────────────────
 function getAllBrands() {
   return [...new Set(PRODUCTS.map(p => p.brand))].sort();
 }
@@ -578,7 +571,7 @@ function getFilteredProducts() {
       p.brand.toLowerCase().includes(state.search.toLowerCase()) ||
       (p.tags || []).some(t => t.toLowerCase().includes(state.search.toLowerCase()));
 
-    const matchCat  = state.category === 'all' || p.category === state.category;
+    const matchCat = state.category === 'all' || p.category === state.category;
     const matchBrand = state.brands.size === 0 || state.brands.has(p.brand);
     const matchPrice = p.price >= state.priceMin && p.price <= state.priceMax;
 
@@ -586,20 +579,20 @@ function getFilteredProducts() {
   });
 
   switch (state.sort) {
-    case 'price-asc':  list.sort((a, b) => a.price - b.price); break;
+    case 'price-asc': list.sort((a, b) => a.price - b.price); break;
     case 'price-desc': list.sort((a, b) => b.price - a.price); break;
-    case 'name':       list.sort((a, b) => a.name.localeCompare(b.name)); break;
-    default:           list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    case 'name': list.sort((a, b) => a.name.localeCompare(b.name)); break;
+    default: list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
   }
 
   return list;
 }
 
-// ─── Render products grid ──────────────────────────────────────
+// ─── Renderizar cuadrícula de productos ──────────────────────────────────────
 function renderProducts() {
-  const grid    = document.getElementById('products-grid');
+  const grid = document.getElementById('products-grid');
   const countEl = document.getElementById('products-count');
-  const list    = getFilteredProducts();
+  const list = getFilteredProducts();
 
   if (countEl) {
     countEl.innerHTML = `<strong>${list.length}</strong> producto${list.length !== 1 ? 's' : ''} encontrado${list.length !== 1 ? 's' : ''}`;
@@ -612,7 +605,7 @@ function renderProducts() {
       <div class="no-results">
         <div class="no-results-icon">🔍</div>
         <h3>No encontramos productos</h3>
-        <p>Intenta cambiar los filtros o la búsqueda</p>
+        <p>Intente cambiar los filtros o la búsqueda</p>
       </div>`;
     return;
   }
@@ -666,16 +659,16 @@ function renderProducts() {
   });
 }
 
-// ─── Render brand filter options ───────────────────────────────
+// ─── Opciones de filtro de marca de renderizado ───────────────────────────────
 function renderBrandFilters() {
   const container = document.getElementById('brand-filters');
   if (!container) return;
 
-  const brands = getAllBrands();
+  const marcas = getAllBrands();
   const counts = {};
   PRODUCTS.forEach(p => { counts[p.brand] = (counts[p.brand] || 0) + 1; });
 
-  container.innerHTML = brands.map(b => `
+  container.innerHTML = marcas.map(b => `
     <label class="filter-option">
       <input type="checkbox" id="brand-${b.replace(/\s/g, '-')}" value="${b}"
         ${state.brands.has(b) ? 'checked' : ''} />
@@ -693,7 +686,7 @@ function renderBrandFilters() {
   });
 }
 
-// ─── Modal ────────────────────────────────────────────────────
+// ─── Modal ───────────────────────────────────────────────────
 function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
@@ -763,7 +756,7 @@ function openModal(id) {
     } else {
       navigator.clipboard?.writeText(window.location.href).then(() => {
         const btn = document.getElementById('modal-share-btn');
-        if (btn) btn.textContent = '✓ Enlace copiado';
+        if (btn) btn.textContent = ' ✓ Enlace copiado';
       });
     }
   });
@@ -774,19 +767,19 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// ─── Category pills ───────────────────────────────────────────
+// ─── Categoría pastillas ───────────────────────────────────────────
 const CATEGORIES = [
-  { id: 'all',         label: 'Todos',        icon: '🛍️' },
-  { id: 'laptops',     label: 'Laptops',      icon: '💻' },
-  { id: 'pcs',         label: 'PCs',          icon: '🖥️' },
-  { id: 'celulares',   label: 'Celulares',    icon: '📱' },
-  { id: 'tablets',     label: 'Tablets',      icon: '📟' },
-  { id: 'perifericos', label: 'Periféricos',  icon: '🖱️' },
-  { id: 'impresoras',  label: 'Impresoras',   icon: '🖨️' },
-  { id: 'componentes', label: 'Componentes',  icon: '⚙️' },
-  { id: 'accesorios',  label: 'Accesorios',   icon: '🎧' },
-  { id: 'redes',       label: 'Redes',        icon: '📡' },
-  { id: 'software',    label: 'Software',     icon: '💿' },
+  { id: 'all', label: 'Todos', icon: '🛍️' },
+  { id: 'laptops', label: 'Portátiles', icon: '💻' },
+  { id: 'pcs', label: 'PCs', icon: '🖥️' },
+  { id: 'celulares', label: 'Celulares', icon: '📱' },
+  { id: 'tabletas', label: 'Tabletas', icon: '📟' },
+  { id: 'periféricos', label: 'Periféricos', icon: '🖱️' },
+  { id: 'impresoras', label: 'Impresoras', icon: '🖨️' },
+  { id: 'componentes', label: 'Componentes', icon: '⚙️' },
+  { id: 'accesorios', label: 'Accesorios', icon: '🎧' },
+  { id: 'redes', label: 'Redes', icon: '📡' },
+  { id: 'software', label: 'Software', icon: '💿' },
 ];
 
 function renderCategoryPills() {
@@ -810,29 +803,36 @@ function renderCategoryPills() {
   });
 }
 
-// ─── Initialize ────────────────────────────────────────────────
+// ─── Inicializar ──────────────────────────────────────────────
 function init() {
-  // Search
+  // Buscar
   const searchInput = document.getElementById('search-input');
   let debounceTimer;
   const doSearch = () => {
     state.search = searchInput.value.trim();
     renderProducts();
   };
-  searchInput.addEventListener('input', () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(doSearch, 250);
-  });
-  document.getElementById('search-btn').addEventListener('click', doSearch);
-  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(doSearch, 250);
+    });
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+  }
+  
+  const searchBtn = document.getElementById('search-btn');
+  if (searchBtn) searchBtn.addEventListener('click', doSearch);
 
-  // Sort
-  document.getElementById('sort-select').addEventListener('change', e => {
-    state.sort = e.target.value;
-    renderProducts();
-  });
+  // Ordenar
+  const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', e => {
+      state.sort = e.target.value;
+      renderProducts();
+    });
+  }
 
-  // Price filter
+  // Filtro de precio
   const applyPrice = () => {
     const min = parseFloat(document.getElementById('price-min').value) || 0;
     const max = parseFloat(document.getElementById('price-max').value) || Infinity;
@@ -840,56 +840,72 @@ function init() {
     state.priceMax = max;
     renderProducts();
   };
-  document.getElementById('price-min').addEventListener('change', applyPrice);
-  document.getElementById('price-max').addEventListener('change', applyPrice);
+  
+  const priceMinInput = document.getElementById('price-min');
+  const priceMaxInput = document.getElementById('price-max');
+  if (priceMinInput) priceMinInput.addEventListener('change', applyPrice);
+  if (priceMaxInput) priceMaxInput.addEventListener('change', applyPrice);
 
-  // Clear filters
-  document.getElementById('btn-clear-filters').addEventListener('click', () => {
-    state.search = '';
-    state.category = 'all';
-    state.brands = new Set();
-    state.priceMin = 0;
-    state.priceMax = Infinity;
-    searchInput.value = '';
-    document.getElementById('price-min').value = '';
-    document.getElementById('price-max').value = '';
-    document.getElementById('sort-select').value = 'featured';
-    renderCategoryPills();
-    renderBrandFilters();
-    renderProducts();
-  });
+  // Borrar filtros
+  const clearFiltersBtn = document.getElementById('btn-clear-filters');
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener('click', () => {
+      state.search = '';
+      state.category = 'all';
+      state.brands = new Set();
+      state.priceMin = 0;
+      state.priceMax = Infinity;
+      if (searchInput) searchInput.value = '';
+      if (priceMinInput) priceMinInput.value = '';
+      if (priceMaxInput) priceMaxInput.value = '';
+      if (sortSelect) sortSelect.value = 'featured';
+      renderCategoryPills();
+      renderBrandFilters();
+      renderProducts();
+    });
+  }
 
-  // Modal
+  // Modal Overlay
   const overlay = document.getElementById('modal-overlay');
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  if (overlay) {
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // Mobile sidebar drawer
+  // Cajón lateral para dispositivos móviles
   const sidebar = document.getElementById('sidebar');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const filterFab = document.getElementById('filter-fab');
 
-  document.getElementById('filter-fab').addEventListener('click', () => {
-    sidebar.classList.add('drawer-open');
-    sidebarOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
+  if (filterFab && sidebar && sidebarOverlay) {
+    filterFab.addEventListener('click', () => {
+      sidebar.classList.add('drawer-open');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
 
   const closeSidebar = () => {
-    sidebar.classList.remove('drawer-open');
-    sidebarOverlay.classList.remove('active');
+    if (sidebar) sidebar.classList.remove('drawer-open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
     document.body.style.overflow = '';
   };
 
-  sidebarOverlay.addEventListener('click', closeSidebar);
-  document.getElementById('sidebar-close-btn').addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+  
+  const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+  if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
 
-  // WhatsApp float click
-  document.getElementById('whatsapp-float').addEventListener('click', () => {
-    const msg = encodeURIComponent('¡Hola! Quisiera saber más sobre sus productos de tecnología. ¿Me pueden ayudar?');
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
-  });
+  // Clic flotante de WhatsApp
+  const whatsappFloat = document.getElementById('whatsapp-float');
+  if (whatsappFloat) {
+    whatsappFloat.addEventListener('click', () => {
+      const msg = encodeURIComponent('¡Hola! Quisiera saber más sobre sus productos de tecnología. ¿Me pueden ayudar?');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
+    });
+  }
 
-  // Load products (from Sheets or demo)
+  // Cargar productos
   loadProducts();
 }
 
