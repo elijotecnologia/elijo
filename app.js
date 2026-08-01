@@ -798,3 +798,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animar();
 });
+// ════════════════════════════════════════════════════════════
+// SINCRONIZACIÓN Y FUNCIONALIDAD DEL BUSCADOR DEL BANNER (HERO)
+// ════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  const mainSearchInput = document.getElementById('search-input');
+  const heroSearchInput = document.getElementById('hero-search-input');
+  const heroSearchBtn = document.getElementById('hero-search-btn');
+
+  if (mainSearchInput && heroSearchInput) {
+    // 1. Al escribir en el buscador del banner, sincroniza y ejecuta la búsqueda original
+    heroSearchInput.addEventListener('input', (e) => {
+      mainSearchInput.value = e.target.value;
+      mainSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // 2. Al hacer clic en el botón "Buscar" del banner
+    if (heroSearchBtn) {
+      heroSearchBtn.addEventListener('click', () => {
+        mainSearchInput.value = heroSearchInput.value;
+        mainSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        // Desplaza suavemente al catálogo para ver los resultados
+        document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // 3. Al escribir arriba en la navbar, actualiza también el buscador del banner
+    mainSearchInput.addEventListener('input', (e) => {
+      heroSearchInput.value = e.target.value;
+    });
+  }
+});
