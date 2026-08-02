@@ -24,7 +24,7 @@
 
 const SHEETS_CONFIG = {
   // ► PEGA AQUÍ TU URL DE GOOGLE SHEETS CSV ◄
-  SHEETS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRa0B1xjo18VL2DjYLxQtOWVyvDMp4lDXEUkY09htxYcw_lvbwaQVED4Chx83vG26SLssN-VkVl9gYP/pub?gid=0&single=true&output=csv',   // Ejemplo: 'https://docs.google.com/spreadsheets/d/TU_ID/export?format=csv&gid=0'
+  SHEETS_CSV_URL: 'https://docs.google.com/spreadsheets/d/13uKmPFbdNggHTPeFURNV4oYyV5QOEu9_lRLQUJVKWcc/edit?usp=sharing',   // Ejemplo: 'https://docs.google.com/spreadsheets/d/TU_ID/export?format=csv&gid=0'
 
   // Número de WhatsApp (con código de país, sin +)
   WHATSAPP_NUMBER: '51918394348',
