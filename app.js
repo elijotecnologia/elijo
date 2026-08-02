@@ -187,7 +187,9 @@ async function loadProducts() {
     state.source = 'demo';
     updateSyncBanner('demo');
   }
-
+function updateSyncBanner(status, count = 0, errorMsg = '') {
+  return; // 👈 AGREGA O PEGA ESTO AQUÍ
+  const banner = document.getElementById('sheets-sync-banner');
   state.loading = false;
   renderCategoryPills();
   renderBrandFilters();
