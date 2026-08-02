@@ -2431,3 +2431,6 @@ input { font-family: inherit; }
 #status {
     display: none !important;
 }
+#sheets-sync-banner {
+  display: none !important;
+}
