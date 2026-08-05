@@ -223,7 +223,9 @@ async function refreshProducts(csvUrl) {
 // ═════════════════════════════════════════════════════════════
 // BANNER DE SINCRONIZACIÓN
 // ═════════════════════════════════════════════════════════════
+const SHOW_SYNC_STATUS = false;
 function updateSyncBanner(status, count = 0, errorMsg = '') {
+  if (!SHOW_SYNC_STATUS) return;
   const banner = document.getElementById('sheets-sync-banner');
   if (!banner) return;
 
