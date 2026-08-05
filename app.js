@@ -829,3 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+/* Ocultar mensaje de sincronización */
+#sync-status, .sync-status {
+  display: none !important;
+}
