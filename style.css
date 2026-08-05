@@ -2427,3 +2427,6 @@ input { font-family: inherit; }
 #sheets-sync-banner {
   display: none !important;
 }
+#products-count {
+  display: none !important;
+}
