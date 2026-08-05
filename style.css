@@ -2424,3 +2424,7 @@ input { font-family: inherit; }
   .dyn-banner-countdown { display: none; }
   .comparison-table th, .comparison-table td { padding: 10px 12px; font-size: .8rem; }
 }
+/* Ocultar mensaje de sincronización */
+#sync-status, .sync-status {
+  display: none !important;
+}
