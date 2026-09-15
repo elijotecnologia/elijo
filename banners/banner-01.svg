@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#g1)"/>
+  <circle cx="1600" cy="300" r="350" fill="url(#g2)"/>
+  <circle cx="200" cy="500" r="250" fill="url(#g2)"/>
+  <g transform="translate(140, 180)">
+    <rect x="0" y="0" width="160" height="36" rx="18" fill="#3b82f6"/>
+    <text x="80" y="23" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">OFERTAS DE TEMPORADA</text>
+    <text x="0" y="110" fill="#ffffff" font-family="system-ui, sans-serif" font-size="52" font-weight="900">Tecnología de Alto Rendimiento</text>
+    <text x="0" y="160" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="24" font-weight="500">Laptops, PCs y Componentes con asesoría personalizada 100% gratuita.</text>
+    <rect x="0" y="195" width="200" height="50" rx="25" fill="#2563eb"/>
+    <text x="100" y="227" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Explorar Catálogo →</text>
+  </g>
+</svg>
